@@ -19,24 +19,39 @@ var ErrNullResponse = core.ErrNullResponse
 // YAMLError represents an error returned by YAMLStar.
 type YAMLError = core.YAMLError
 
+// Option configures a YAML load or dump operation.
+type Option = core.Option
+
+// Plugin is a YAMLStar plugin option fragment.
+type Plugin = core.Plugin
+
+// Parser selects the parser plugin used for loading.
+var Parser = core.Parser
+
+// WithPlugin adds a plugin option fragment.
+var WithPlugin = core.WithPlugin
+
+// WithParser selects the parser plugin used for loading.
+var WithParser = core.WithParser
+
 // Load parses a YAML string and returns its first document as a Go value.
-func Load(input string) (any, error) {
-	return core.Load(input)
+func Load(input string, opts ...Option) (any, error) {
+	return core.Load(input, opts...)
 }
 
 // LoadAll parses a YAML stream and returns all its documents.
-func LoadAll(input string) ([]any, error) {
-	return core.LoadAll(input)
+func LoadAll(input string, opts ...Option) ([]any, error) {
+	return core.LoadAll(input, opts...)
 }
 
 // Dump serializes a JSON-compatible Go value as YAML.
-func Dump(value any) (string, error) {
-	return core.Dump(value)
+func Dump(value any, opts ...Option) (string, error) {
+	return core.Dump(value, opts...)
 }
 
 // DumpAll serializes JSON-compatible Go values as a YAML stream.
-func DumpAll(values []any) (string, error) {
-	return core.DumpAll(values)
+func DumpAll(values []any, opts ...Option) (string, error) {
+	return core.DumpAll(values, opts...)
 }
 
 // LibVersion returns the version reported by the YAMLStar runtime.
