@@ -4,7 +4,7 @@ go 1.24
 
 require (
 	github.com/stretchr/testify v1.9.0
-	github.com/yaml/yamlstar v0.1.20
+	github.com/yaml/yamlstar v0.1.21
 )
 
 require (
