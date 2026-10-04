@@ -25,14 +25,51 @@ type Option = core.Option
 // Plugin is a YAMLStar plugin option fragment.
 type Plugin = core.Plugin
 
-// Parser selects the parser plugin used for loading.
-var Parser = core.Parser
+// IndentMode supplies loading and dumping defaults.
+type IndentMode = core.IndentMode
+
+const (
+	IndentModeAuto = core.IndentModeAuto
+	IndentModeTabs = core.IndentModeTabs
+)
+
+// IndentStyle identifies the characters used for structural indentation.
+type IndentStyle = core.IndentStyle
+
+const (
+	IndentStyleAuto   = core.IndentStyleAuto
+	IndentStyleSpaces = core.IndentStyleSpaces
+	IndentStyleTabs   = core.IndentStyleTabs
+)
+
+// IndentScope controls how long an auto-detected style remains active.
+type IndentScope = core.IndentScope
+
+const (
+	IndentScopeDocument = core.IndentScopeDocument
+	IndentScopeStream   = core.IndentScopeStream
+)
+
+// IndentConfig configures the built-in tab-indent plugin.
+type IndentConfig = core.IndentConfig
+
+// AliasDataConfig configures external alias values and stream anchor scope.
+type AliasDataConfig = core.AliasDataConfig
+
+// YAMLParser selects the YAML parser plugin used for loading.
+var YAMLParser = core.YAMLParser
+
+// YAMLEmitter selects the YAML emitter plugin used for dumping.
+var YAMLEmitter = core.YAMLEmitter
+
+// AliasData enables the built-in Alias-Data policy.
+var AliasData = core.AliasData
+
+// TabIndent enables tab-aware loading and tab-indented dumping.
+var TabIndent = core.TabIndent
 
 // WithPlugin adds a plugin option fragment.
 var WithPlugin = core.WithPlugin
-
-// WithParser selects the parser plugin used for loading.
-var WithParser = core.WithParser
 
 // Load parses a YAML string and returns its first document as a Go value.
 func Load(input string, opts ...Option) (any, error) {
